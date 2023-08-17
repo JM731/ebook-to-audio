@@ -102,6 +102,8 @@ class Window(QMainWindow):
         self.initial_page_spinbox.valueChanged.connect(self.onInitialValueChanged)
         self.initial_page_label = QLabel()
         self.final_page_label = QLabel()
+        self.initial_page_label.setText("From page")
+        self.final_page_label.setText("To")
         self.initial_page_spinbox.hide()
         self.initial_page_label.hide()
         self.final_page_spinbox.hide()
@@ -155,10 +157,6 @@ class Window(QMainWindow):
 
                 if self.file_extension == ".pdf":
                     num_pages = get_pdf_page_count(self.file)
-                    initial_label = "From page"
-                    final_label = "To"
-                    self.initial_page_label.setText(initial_label)
-                    self.final_page_label.setText(final_label)
                     self.initial_page_spinbox.setRange(1, num_pages)
                     self.onInitialValueChanged()
                     self.initial_page_label.show()
